@@ -1,0 +1,20 @@
+repositories:
+
+  _externals/contools:
+    type:         git
+    url:          https://github.com/andry81/contools
+    version:      master
+    subpaths:
+      - __init__
+      - _config
+      - Scripts/__init__
+      - Scripts/Tools/__init__
+      - Scripts/Tools/build
+      - Scripts/Tools/std
+      - Scripts/Tools/wmi
+      - Scripts/Tools/xcopy
+
+  _externals/msys:
+    type:         git
+    url:          https://github.com/andry81-3dparty/external-tools--msys
+    version:      1.0.17.x

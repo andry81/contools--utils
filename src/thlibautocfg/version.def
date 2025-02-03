@@ -1,0 +1,7 @@
+autogen definitions version;
+
+AppName = "thlibautocfg";
+AppMajorVer = 1;
+AppMinorVer = 2;
+AppRevision = 0;
+AppBuildNum = 14;
