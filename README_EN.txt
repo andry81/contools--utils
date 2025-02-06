@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.02.03
+* 2025.02.06
 * contools--utils
 
 1. DESCRIPTION
@@ -67,7 +67,7 @@ Primary:
     https://github.com/andry81/contools--utils.git
 First mirror:
   * https://sf.net/p/contools/contools--utils/ci/master/tree
-    https://git.code.sf.net/p/contools--utils/contools
+    https://git.code.sf.net/p/contools/contools--utils
 Second mirror:
   * https://gitlab.com/andry81/contools-utils/-/branches
     https://gitlab.com/andry81/contools-utils.git
@@ -85,12 +85,11 @@ Second mirror:
  |
  +- /`_externals`
  |    #
- |    # Immediate external projects catalog which could not be moved into the
- |    # 3dparty dependencies catalog.
+ |    # Immediate external repositories catalog.
  |
  +- /`_config`
  |  | #
- |  | # Directory with build input configuration files.
+ |  | # Directory with input configuration files.
  |  |
  |  +- `config.system.vars.in`
  |      #

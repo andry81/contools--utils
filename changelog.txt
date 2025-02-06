@@ -1,3 +1,6 @@
+2025.02.06:
+* changed: README_EN.txt: readme update
+
 2025.02.03:
 * changed: project extracted from `contools` project
 * changed: src/_common/tacklelib: sync with latest version
