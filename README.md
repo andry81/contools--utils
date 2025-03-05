@@ -35,6 +35,7 @@
 <p align="center">
   <a href="https://github.com/andry81/contools--utils/tree/HEAD/changelog.txt">Changelog</a>
 • <a href="https://github.com/andry81/contools--utils/tree/HEAD/README_EN.txt">Readme</a>
+• <a href="#dependencies">Dependencies</a>
 • <a href="#related-projects">Related projects</a>
 • <a href="#copyright-and-license"><img src="https://github.com/andry81-cache/gh-content-static-cache/raw/master/common/badges/license/mit-license.svg" valign="middle" alt="copyright and license" />&nbsp;Copyright and License</a>
 </p>
@@ -44,6 +45,10 @@
 </p>
 
 ---
+
+## <a name="dependencies">Dependencies</a>
+
+* https://github.com/andry81-3dparty/wxwidgets
 
 ## <a name="related-projects">Related projects</a>
 
