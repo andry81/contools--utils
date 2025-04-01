@@ -72,6 +72,9 @@ src/callf
 
   Replace by unicode print function variant.
 
+* Hangs (in the `contools` `exec_callf_prefix.bat` script) if a current drive 
+  is in a sleeping state.
+
 -------------------------------------------------------------------------------
 tests/manual/contools/callf
 -------------------------------------------------------------------------------
