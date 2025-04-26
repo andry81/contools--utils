@@ -4578,7 +4578,7 @@ int ExecuteProcess(LPCTSTR app, size_t app_len, LPCTSTR cmd, size_t cmd_len)
     const bool is_os_windows_7 = g_options.win_ver.major == 6 && g_options.win_ver.minor == 1;
     const bool is_os_windows_xp_or_lower = g_options.win_ver.major < 6;
 
-    std::vector<uint8_t> cmd_buf;
+    std::vector<TCHAR> cmd_buf;
 
     STARTUPINFO si{};
     PROCESS_INFORMATION pi{};
@@ -5725,8 +5725,9 @@ int ExecuteProcess(LPCTSTR app, size_t app_len, LPCTSTR cmd, size_t cmd_len)
                 // CAUTION:
                 //  cmd argument must be writable!
                 //
-                cmd_buf.resize((std::max)(cmd_len + sizeof(TCHAR), size_t(32768U)));
-                memcpy(cmd_buf.data(), cmd, cmd_buf.size());
+                cmd_buf.resize((std::min)(cmd_len + 1, size_t(32767U))); // in characters
+                memcpy(cmd_buf.data(), cmd, cmd_buf.size() * sizeof(TCHAR));
+                cmd_buf[cmd_buf.size() - 1] = _T('\0'); // truncate if exceeded
             }
 
             if (!is_shell_exec && !g_is_process_self_elevation) {
@@ -5752,7 +5753,7 @@ int ExecuteProcess(LPCTSTR app, size_t app_len, LPCTSTR cmd, size_t cmd_len)
 
                 SetLastError(0); // just in case
                 ret_create_proc = CreateProcess(
-                    (app && app_len) ? app : NULL, (cmd && cmd_len) ? (TCHAR *)cmd_buf.data() : NULL,
+                    (app && app_len) ? app : NULL, (cmd && cmd_len) ? cmd_buf.data() : NULL,
                     NULL, NULL, TRUE, // must be always TRUE because there can be any arbitrary handle
                     (g_flags.detach_child_console ? DETACHED_PROCESS : 0) |
                     (g_flags.create_child_console ? CREATE_NEW_CONSOLE : 0) |
@@ -5844,7 +5845,7 @@ int ExecuteProcess(LPCTSTR app, size_t app_len, LPCTSTR cmd, size_t cmd_len)
                     {
                         SetLastError(0); // just in case
                         ret_create_proc = CreateProcessNonElevated(
-                            (app && app_len) ? app : NULL, (cmd && cmd_len) ? (TCHAR *)cmd_buf.data() : NULL,
+                            (app && app_len) ? app : NULL, (cmd && cmd_len) ? cmd_buf.data() : NULL,
                             NULL, NULL, TRUE, // must be always TRUE because there can be any arbitrary handle
                             (g_flags.detach_child_console ? DETACHED_PROCESS : 0) |
                             (g_flags.create_child_console ? CREATE_NEW_CONSOLE : 0) |
@@ -5932,7 +5933,7 @@ int ExecuteProcess(LPCTSTR app, size_t app_len, LPCTSTR cmd, size_t cmd_len)
                 if (!g_flags.no_print_gen_error_string) {
                     if (g_options.shell_exec_verb.empty()) {
                         _print_stderr_message(msgt_error, _T("could not create child process: win_error=0x%08X (%d) app=\"%s\" cmd=\"%s\"\n"),
-                            win_error, win_error, app, cmd_buf.size() ? (TCHAR *)cmd_buf.data() : _T(""));
+                            win_error, win_error, app, cmd_buf.size() ? cmd_buf.data() : _T(""));
                     }
                     else {
                         _print_stderr_message(msgt_error, _T("could not shell execute child process: win_error=0x%08X (%d) shell_error=0x%08X (%d) file=\"%s\" params=\"%s\"\n"),

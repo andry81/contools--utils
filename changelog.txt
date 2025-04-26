@@ -1,3 +1,6 @@
+2025.04.26:
+* fixed: src/callf/execute.cpp: random access violation around command line buffer
+
 2025.04.01:
 * changed: ISSUES.txt: issues update
 
