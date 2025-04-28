@@ -53,7 +53,7 @@ setlocal ENABLEDELAYEDEXPANSION & for /F "tokens=* delims="eol^= %%i in ("!?.:$0
 if "%PROCESSOR_ARCHITECTURE%" == "x86" goto X86
 
 if not exist "%SystemRoot%\Syswow64\*" (
-  echo.%?~%: error: not x86 system without Syswow64 system directory.
+  echo;%?~%: error: not x86 system without Syswow64 system directory.
   exit /b 255
 ) >&2
 
@@ -75,7 +75,7 @@ set IMPL_MODE=1
 if "%PROCESSOR_ARCHITECTURE%" == "x86" goto IMPL
 
 if not exist "%SystemRoot%\Syswow64\*" (
-  echo.%?~%: error: not x86 system without Syswow64 system directory.
+  echo;%?~%: error: not x86 system without Syswow64 system directory.
   exit /b 255
 ) >&2
 
@@ -85,9 +85,9 @@ exit /b
 
 :IMPL
 if %ELEVATED% EQU 0 call :IS_ADMIN_ELEVATED || (
-  echo.%?~%: error: process must be elevated before continue.
+  echo;%?~%: error: process must be elevated before continue.
   exit /b 255
 ) >&2
 
-echo.^>"%SystemRoot%\System32\regsvr32.exe" "%~dp0wshdynacall32.dll"
+echo;^>"%SystemRoot%\System32\regsvr32.exe" "%~dp0wshdynacall32.dll"
 "%SystemRoot%\System32\regsvr32.exe" "%~dp0wshdynacall32.dll"

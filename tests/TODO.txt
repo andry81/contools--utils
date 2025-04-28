@@ -504,7 +504,7 @@ Tests for `callf` {*} and {@} argument variables should produce the same results
 
 
 * >
-  callf "" "cmd.exe /c echo.{0} {1} {2}" "0"""1 2""3 4"5"
+  callf "" "cmd.exe /c echo;{0} {1} {2}" "0"""1 2""3 4"5"
 
   0"1 23 45
 
@@ -522,7 +522,7 @@ Tests for `callf` {*} and {@} argument variables should produce the same results
 
 
 * >
-  callf "" "cmd.exe /c echo.{0} {1} {2}" 0"""1 2""3 4"5"
+  callf "" "cmd.exe /c echo;{0} {1} {2}" 0"""1 2""3 4"5"
 
   0"1 2"3 45 {1} {2}
 

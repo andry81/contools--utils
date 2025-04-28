@@ -1508,17 +1508,17 @@ Usage: [+ AppModuleName +].exe [/?] [<Flags>] [//] <ApplicationNameFormatString>
    >0   - subprocess exit code
 
   Examples (CreateProcess, no recursion, `cmd.exe` different escaping rules):
-    1. callf.exe "${WINDIR}\system32\cmd.exe" "{0} {1}" "/c" "echo.Hello World!"
-    2. callf.exe "${COMSPEC}" "{0} {1}" "/c" "echo.Hello World!"
-    3. callf.exe "{0}" "{1} {2}" "${COMSPEC}" "/c" "echo.Hello World!"
-    4. callf.exe "" "\"{0}\" {1} {2}" "cmd.exe" "/c" "echo.Hello World!"
-    5. callf.exe "" "\"{0}\" {1} {2}" "${WINDIR}\system32\cmd.exe" "/c" "echo.Hello World!"
-    6. callf.exe "" "\"{0}\" {@}" "${WINDIR}\system32\cmd.exe" /c echo.Hello World!
-    7. callf.exe "" "{*}" "${WINDIR}\system32\cmd.exe" /c echo.Hello World!
+    1. callf.exe "${WINDIR}\system32\cmd.exe" "{0} {1}" "/c" "echo;Hello World!"
+    2. callf.exe "${COMSPEC}" "{0} {1}" "/c" "echo;Hello World!"
+    3. callf.exe "{0}" "{1} {2}" "${COMSPEC}" "/c" "echo;Hello World!"
+    4. callf.exe "" "\"{0}\" {1} {2}" "cmd.exe" "/c" "echo;Hello World!"
+    5. callf.exe "" "\"{0}\" {1} {2}" "${WINDIR}\system32\cmd.exe" "/c" "echo;Hello World!"
+    6. callf.exe "" "\"{0}\" {@}" "${WINDIR}\system32\cmd.exe" /c echo;Hello World!
+    7. callf.exe "" "{*}" "${WINDIR}\system32\cmd.exe" /c echo;Hello World!
 
-    6. callf.exe "${COMSPEC}" "/c echo.Special case characters: ^|^&""|& ^ |&""^|^& ^^ ^|^&""|& ^ |&""^|^&&pause"
-    7. callf.exe "${COMSPEC}" "/c echo.Special case characters: ^|^&\"^|^& ^^ ^|^&\"^|^& ^^ ^|^&\"^|^& ^^ ^|^&\"^|^&&pause"
-    8. callf.exe "${COMSPEC}" "/c \"echo.Special case characters: ^^^|^^^&\"|& ^ |&\"^^^|^^^& ^^^^ ^^^|^^^&\"|& ^ |&\"^^^|^^^&^&pause\""
+    6. callf.exe "${COMSPEC}" "/c echo;Special case characters: ^|^&""|& ^ |&""^|^& ^^ ^|^&""|& ^ |&""^|^&&pause"
+    7. callf.exe "${COMSPEC}" "/c echo;Special case characters: ^|^&\"^|^& ^^ ^|^&\"^|^& ^^ ^|^&\"^|^& ^^ ^|^&\"^|^&&pause"
+    8. callf.exe "${COMSPEC}" "/c \"echo;Special case characters: ^^^|^^^&\"|& ^ |&\"^^^|^^^& ^^^^ ^^^|^^^&\"|& ^ |&\"^^^|^^^&^&pause\""
 
     Examples #1-5 should print:
       Hello World!
@@ -1527,13 +1527,13 @@ Usage: [+ AppModuleName +].exe [/?] [<Flags>] [//] <ApplicationNameFormatString>
       Special case characters: |&"|& ^ |&"|& ^ |&"|& ^ |&"|&
 
   Examples (CreateProcess, with recursion):
-    1. callf.exe "" "\"${COMSPEC}\" /c echo.{0}" "%%TIME%%"
-    2. callf.exe "" "callf.exe \"\" \"\\\"$\{COMSPEC}\\\" /c echo.{0}\" \"%%TIME%%\""
-    3. callf.exe "" "callf.exe \"\" \"callf.exe \\\"\\\" \\\"\\\\\\\"$\\{COMSPEC}\\\\\\\" /c echo.{0}\\\" \\\"%%TIME%%\\\"\""
+    1. callf.exe "" "\"${COMSPEC}\" /c echo;{0}" "%%TIME%%"
+    2. callf.exe "" "callf.exe \"\" \"\\\"$\{COMSPEC}\\\" /c echo;{0}\" \"%%TIME%%\""
+    3. callf.exe "" "callf.exe \"\" \"callf.exe \\\"\\\" \\\"\\\\\\\"$\\{COMSPEC}\\\\\\\" /c echo;{0}\\\" \\\"%%TIME%%\\\"\""
 
-    4. callf.exe "" "\"${COMSPEC}\" /c echo.{0}" "%TIME%"
-    5. callf.exe "" "callf.exe \"\" \"\\\"$\{COMSPEC}\\\" /c echo.{0}\" \"%TIME%\""
-    6. callf.exe "" "callf.exe \"\" \"callf.exe \\\"\\\" \\\"\\\\\\\"$\\{COMSPEC}\\\\\\\" /c echo.{0}\\\" \\\"%TIME%\\\"\""
+    4. callf.exe "" "\"${COMSPEC}\" /c echo;{0}" "%TIME%"
+    5. callf.exe "" "callf.exe \"\" \"\\\"$\{COMSPEC}\\\" /c echo;{0}\" \"%TIME%\""
+    6. callf.exe "" "callf.exe \"\" \"callf.exe \\\"\\\" \\\"\\\\\\\"$\\{COMSPEC}\\\\\\\" /c echo;{0}\\\" \\\"%TIME%\\\"\""
 
     Examples #1-3 must be run from the cmd.exe batch file (.bat).
 

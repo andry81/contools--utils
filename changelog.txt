@@ -1,4 +1,7 @@
 2025.04.28:
+* changed: global code improvement: `echo.` -> `echo;`, based on "Different `echo?...` variants" : https://github.com/andry81/contools/discussions/22
+
+2025.04.28:
 * new: tests/manual/contools/callf/80-disable_signals_!exclusive: tests moved from `contools` project
 
 2025.04.26:

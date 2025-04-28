@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.02.06
+* 2025.04.28
 * contools--utils
 
 1. DESCRIPTION
@@ -210,13 +210,13 @@ NOTE:
 
   Examples:
   >
-  callf.exe "" "cmd.exe /c echo.\"{0} {1}\"" "1 2" "3 4"
+  callf.exe "" "cmd.exe /c echo;\"{0} {1}\"" "1 2" "3 4"
 
 * Environment variables expansion.
 
   Examples:
   >
-  callf.exe "" "\"${COMSPEC}\" /c echo.\"{0} {1}\"" "1 2" "3 4"
+  callf.exe "" "\"${COMSPEC}\" /c echo;\"{0} {1}\"" "1 2" "3 4"
 
 * Execute with elevation.
 
@@ -224,27 +224,27 @@ NOTE:
 
      Examples:
      >
-     callf.exe /shell-exec runas /no-sys-dialog-ui "${COMSPEC}" "/c echo.\"{0} {1}\" & pause" "1 2" "3 4"
+     callf.exe /shell-exec runas /no-sys-dialog-ui "${COMSPEC}" "/c echo;\"{0} {1}\" & pause" "1 2" "3 4"
      >
-     callf.exe /elevate "" "\"${COMSPEC}\" /c echo.\"{0} {1}\" & pause" "1 2" "3 4"
+     callf.exe /elevate "" "\"${COMSPEC}\" /c echo;\"{0} {1}\" & pause" "1 2" "3 4"
      >
-     callfg.exe /elevate /create-console "" "\"${COMSPEC}\" /c echo.\"{0} {1}\" & pause" "1 2" "3 4"
+     callfg.exe /elevate /create-console "" "\"${COMSPEC}\" /c echo;\"{0} {1}\" & pause" "1 2" "3 4"
 
   ** Use existing console.
 
      Examples:
      >
-     callf.exe /shell-exec runas /no-sys-dialog-ui /no-window "callf.exe" "/attach-parent-console \"\" \"\\\"${COMSPEC}\\\" /c \\\"echo.\\\"{0} {1}\\\"\\\"\" \"1 2\" \"3 4\""
+     callf.exe /shell-exec runas /no-sys-dialog-ui /no-window "callf.exe" "/attach-parent-console \"\" \"\\\"${COMSPEC}\\\" /c \\\"echo;\\\"{0} {1}\\\"\\\"\" \"1 2\" \"3 4\""
      >
-     callf.exe /elevate{ /no-window }{ /attach-parent-console } "" "\"${COMSPEC}\" /c echo.\"{0} {1}\"" "1 2" "3 4"
+     callf.exe /elevate{ /no-window }{ /attach-parent-console } "" "\"${COMSPEC}\" /c echo;\"{0} {1}\"" "1 2" "3 4"
      >
-     start "" /WAIT callfg.exe /elevate /attach-parent-console "" "\"${COMSPEC}\" /c echo.\"{0} {1}\"" "1 2" "3 4"
+     start "" /WAIT callfg.exe /elevate /attach-parent-console "" "\"${COMSPEC}\" /c echo;\"{0} {1}\"" "1 2" "3 4"
 
 * Backslash escaping.
 
   Examples:
   >
-  callf.exe /e2 "${COMSPEC}" "/c echo.\"{0}\"" "Hello\tWorld!\a"
+  callf.exe /e2 "${COMSPEC}" "/c echo;\"{0}\"" "Hello\tWorld!\a"
 
 * Text replacing.
 
@@ -258,9 +258,9 @@ NOTE:
 
   Examples:
   >
-  callf /v "TEST" "123" "" "cmd.exe /c echo.TEST=${TEST}"
+  callf /v "TEST" "123" "" "cmd.exe /c echo;TEST=${TEST}"
   >
-  callf /v "TEST" "123" "" "cmd.exe /c echo.TEST=%TEST%"
+  callf /v "TEST" "123" "" "cmd.exe /c echo;TEST=%TEST%"
 
 * File print.
 
@@ -302,11 +302,11 @@ NOTE:
 
   Examples:
   >
-  callf.exe "" "\"${COMSPEC}\" /c echo.{0}" "%TIME%"
+  callf.exe "" "\"${COMSPEC}\" /c echo;{0}" "%TIME%"
   >
-  callf.exe "" "callf.exe \"\" \"\\\"$\{COMSPEC}\\\" /c echo.{0}\" \"%TIME%\""
+  callf.exe "" "callf.exe \"\" \"\\\"$\{COMSPEC}\\\" /c echo;{0}\" \"%TIME%\""
   >
-  callf.exe "" "callf.exe \"\" \"callf.exe \\\"\\\" \\\"\\\\\\\"$\\{COMSPEC}\\\\\\\" /c echo.{0}\\\" \\\"%TIME%\\\"\""
+  callf.exe "" "callf.exe \"\" \"callf.exe \\\"\\\" \\\"\\\\\\\"$\\{COMSPEC}\\\\\\\" /c echo;{0}\\\" \\\"%TIME%\\\"\""
 
 * Connects a named pipe from stdout to a child process stdin with the same
   privileges.

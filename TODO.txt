@@ -84,7 +84,7 @@ src/callf
   environment variable expansion:
 
     >
-    callf.exe /v AAA 1{0}1 "" "cmd.exe /c echo.${AAA}" "x"
+    callf.exe /v AAA 1{0}1 "" "cmd.exe /c echo;${AAA}" "x"
 
     Should print `1{0}1` instead of `1x1`.
 
@@ -99,12 +99,12 @@ src/callf
   expand after the elevation in a child process:
 
   >
-  callf /elevate{ }{ /v MY_ELEVATED_VAR 123 } "" "cmd.exe /k echo.%MY_ELEVATED_VAR%"
+  callf /elevate{ }{ /v MY_ELEVATED_VAR 123 } "" "cmd.exe /k echo;%MY_ELEVATED_VAR%"
 
   or
 
   >
-  callf /v MY_ELEVATED_VAR 123 /elevate "" "cmd.exe /k echo.%MY_ELEVATED_VAR%"
+  callf /v MY_ELEVATED_VAR 123 /elevate "" "cmd.exe /k echo;%MY_ELEVATED_VAR%"
 
   NOTE:
     Beause elevation does execute through the `ShellExecuteEx` Win32 API which
