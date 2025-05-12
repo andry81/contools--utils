@@ -26,7 +26,8 @@ src/callf
 
 * Fix `callf.exe /detach-console "" "unexisted.exe"` crash.
 
-* Fix `callf.exe` long paths open.
+* Fix `callf.exe` long paths open including relative to the current directory
+  paths.
 
 * Fix `callf.exe /shell-exec-unelevate-from-explorer /D . "callf.exe" "/shell-exec runas \"${COMSPEC}\" \"/k\""`
   current directory propagation.
