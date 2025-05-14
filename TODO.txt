@@ -1,4 +1,13 @@
 -------------------------------------------------------------------------------
+src/_common
+-------------------------------------------------------------------------------
+
+* Consider to rewrite `_is_process_elevated` to use `TOKEN_ELEVATION_TYPE`
+  instead of `TOKEN_ELEVATION`.
+
+  See details: https://stackoverflow.com/questions/78134533/winapi-gettokeninformation-with-tokenelevationtype-what-do-the-enumerators#comment137755561_78134533
+
+-------------------------------------------------------------------------------
 src/callf
 -------------------------------------------------------------------------------
 
