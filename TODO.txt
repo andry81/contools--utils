@@ -55,7 +55,23 @@ src/callf
   For example `mintty` process in Windows does close itself on ctrl-c press and
   terminates the child process too when the child process can run in
   interactive mode and should not close upon the ctrl-c press:
-  `mintty.exe -e cmd.exe /k`
+
+    >
+    mintty.exe -e cmd.exe /k`
+
+  Has found in 32-bit Msys.
+
+* Need a workaround to a child process close in case if it does a self restart.
+
+  For example for `mintty.exe`:
+
+    >
+    callf.exe "" "mintty.exe -e cmd.exe /k"
+
+  MinTTY restarts itself and a parent MinTTY process does close.
+
+  For example, the same way works the `write.exe` in the Windows system
+  directory.
 
 * Implement process injection related to the partially implemented
   `/use-stdin-as-piped-from-conin` flag.
