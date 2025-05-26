@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.04.28
+* 2025.05.27
 * contools--utils
 
 1. DESCRIPTION
@@ -291,6 +291,8 @@ NOTE:
   Examples:
   >
   callf.exe /reopen-stdin 0.in "" "cmd.exe /k"
+  >
+  callf.exe /reopen-stdin 0.in "" "cmd.exe /q /k @echo off"
 
 * Output duplication into a file.
 

@@ -463,3 +463,6 @@ These flags already partially added into `help.tpl`, but still is not implemente
 
   Each `<filter-expr>` applies only to the input line and each line can apply
   only one `<filter-expr>`.
+
+* Merge examples from `README_EN.txt` and `help.tpl` into `README_EN.txt` for
+  the full examples list.
