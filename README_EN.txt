@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.05.27
+* 2025.05.30
 * contools--utils
 
 1. DESCRIPTION
@@ -494,7 +494,7 @@ callf.exe ^
   /promote-parent{ /pause-on-exit } ^
   /elevate{ /no-window /create-inbound-server-pipe-to-stdout test_stdout_{pid} /create-inbound-server-pipe-to-stderr test_stderr_{pid} ^
   }{ /attach-parent-console /reopen-stdout-as-client-pipe test_stdout_{ppid} /reopen-stderr-as-client-pipe test_stderr_{ppid} } ^
-  /v IMPL_MODE 1 "" "cmd.exe /c %0 %*"
+  /v IMPL_MODE 1 "" "cmd.exe /c @%0 %*"
 exit /b
 
 :IMPL
