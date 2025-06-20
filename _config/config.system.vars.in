@@ -29,6 +29,8 @@
 upath CONTOOLS_UTILS_ROOT                       ="%CONTOOLS_UTILS_PROJECT_ROOT%"
 upath CONTOOLS_UTILS_BIN_ROOT                   ="%CONTOOLS_UTILS_ROOT%/bin"
 
+upath CONTOOLS_UTILS_AUTOGEN_ROOT               ="%CONTOOLS_UTILS_PROJECT_EXTERNALS_ROOT%/msys"
+
 # CAUTION:
 #
 #   Is required for `set_vars_from_locked_file_pair.bat` script which does called from `cmake/set_vars_from_files.bat` script

@@ -35,9 +35,9 @@ call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/mkdir_if_notexist.bat" "%%SOURCES_DIR%%\gen"
 
 pushd "%SOURCES_DIR%\gen" && (
   if exist "%SOURCES_DIR%\help.def" (
-    call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/call.bat" "%%CONTOOLS_AUTOGEN_ROOT%%\bin\autogen.exe"%%AUTOGEN_BARE_FLAGS%% -L "%%SOURCES_DIR%%" "%%SOURCES_DIR:\=/%%/help.def" || exit /b 255
+    call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/call.bat" "%%CONTOOLS_UTILS_AUTOGEN_ROOT%%\bin\autogen.exe"%%AUTOGEN_BARE_FLAGS%% -L "%%SOURCES_DIR%%" "%%SOURCES_DIR:\=/%%/help.def" || exit /b 255
   )
-  call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/call.bat" "%%CONTOOLS_AUTOGEN_ROOT%%\bin\autogen.exe"%%AUTOGEN_BARE_FLAGS%% -L "%%SOURCES_DIR%%" "%%SOURCES_DIR:\=/%%/version.def" || exit /b 255
+  call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/call.bat" "%%CONTOOLS_UTILS_AUTOGEN_ROOT%%\bin\autogen.exe"%%AUTOGEN_BARE_FLAGS%% -L "%%SOURCES_DIR%%" "%%SOURCES_DIR:\=/%%/version.def" || exit /b 255
   popd
 ) || exit /b 255
 
