@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.05.30
+* 2025.06.25
 * contools--utils
 
 1. DESCRIPTION
@@ -428,12 +428,12 @@ To fix #2:
   Use "errlvl.bat" from `contools` scripts:
 
   >
-  callf /ret-child-exit "" "cmd.exe /c 1.bat & \"%%CONTOOLS_ROOT%%/Scripts/Tools/std/errlvl.bat\""
+  callf /ret-child-exit "" "cmd.exe /c 1.bat & \"%%CONTOOLS_ROOT%%/scripts/tools/std/errlvl.bat\""
 
   and you can use a different environment variables expansion:
 
   >
-  callf /ret-child-exit "" "cmd.exe /c 1.bat & \"${CONTOOLS_ROOT}/Scripts/Tools/std/errlvl.bat\""
+  callf /ret-child-exit "" "cmd.exe /c 1.bat & \"${CONTOOLS_ROOT}/scripts/tools/std/errlvl.bat\""
 
 -------------------------------------------------------------------------------
 9.1.2. Interactive input autocompletion disable.

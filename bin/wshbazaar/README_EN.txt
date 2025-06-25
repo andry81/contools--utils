@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.02.03
+* 2025.06.25
 * contools--utils--wshbazaar
 
 1. DESCRIPTION
@@ -173,7 +173,7 @@ CAUTION:
   The script process must be a 32-bit process to create `jcb.tools` object to
   request above privileges.
 
-See `Scripts/Tools/ToolAdaptors/vbs/set_fileshortpath.vbs` for the example.
+See `scripts/tools/ToolAdaptors/vbs/set_fileshortpath.vbs` for the example.
 
 -------------------------------------------------------------------------------
 2.3. GetFileShortName
@@ -187,4 +187,4 @@ CAUTION:
 NOTE:
   The script does not require the Adminitrator privileges.
 
-See `Scripts/Tools/ToolAdaptors/vbs/get_fileshortname.vbs` for the example.
+See `scripts/tools/ToolAdaptors/vbs/get_fileshortname.vbs` for the example.
