@@ -47,7 +47,7 @@ if exist "%CONTOOLS_UTILS_PROJECT_EXTERNALS_ROOT%/contools/__init__/__init__.bat
 )
 
 if %NO_GEN%0 EQU 0 (
-  call "%%CONTOOLS_ROOT%%/build/mkdir_if_notexist.bat" "%%CONTOOLS_UTILS_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
+  call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/mkdir_if_notexist.bat" "%%CONTOOLS_UTILS_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
 )
 
 if not defined LOAD_CONFIG_VERBOSE if %INIT_VERBOSE%0 NEQ 0 set LOAD_CONFIG_VERBOSE=1
@@ -55,7 +55,7 @@ if not defined LOAD_CONFIG_VERBOSE if %INIT_VERBOSE%0 NEQ 0 set LOAD_CONFIG_VERB
 rem NOTE:
 rem   After the config load, all the variables additionally to the `CONTOOLS_ROOT` variable would be available from here.
 rem
-call "%%CONTOOLS_ROOT%%/build/load_config_dir.bat" %%* -no_load_user_config -- "%%CONTOOLS_UTILS_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_UTILS_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
+call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" %%* -no_load_user_config -- "%%CONTOOLS_UTILS_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_UTILS_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
 
 if %NO_GEN%0 EQU 0 (
   call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/mkdir_if_notexist.bat" "%%PROJECT_OUTPUT_ROOT%%" || exit /b

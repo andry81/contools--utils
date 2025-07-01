@@ -13,8 +13,9 @@ repositories:
       - scripts/tools/std
       - scripts/tools/wmi
       - scripts/tools/xcopy
+      - tools
 
-  _externals/msys:
+  _externals/msys2-autogen:
     type:         git
-    url:          https://github.com/andry81-3dparty/external-tools--msys
-    version:      1.0.17.x
+    url:          https://github.com/andry81-3dparty/external-tools--msys2-win7
+    version:      msys2-i686-20250208/autogen/5.18.16-1
