@@ -1,3 +1,6 @@
+2025.07.07:
+* changed: *.bat: flag parse global code improvement, added `-+` flag to begin flags scope
+
 2025.07.01:
 * fixed: .externals: missed `contools/tools` directory
 * changed: _config/config.system.vars.in, .externals: switched to `msys2-autogen` repo
