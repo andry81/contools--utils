@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.06.25
+* 2025.07.17
 * contools--utils
 
 1. DESCRIPTION
@@ -179,9 +179,7 @@ CAUTION:
 -------------------------------------------------------------------------------
 6. DEPENDENCIES
 -------------------------------------------------------------------------------
-Any project which is dependent on this project have has to contain the
-`README_EN.deps.txt` description file for the common dependencies in the
-Windows and in the Linux like platforms.
+See details in `README_EN.deps.txt` file.
 
 -------------------------------------------------------------------------------
 7. EXTERNALS

@@ -1539,7 +1539,7 @@ DWORD WINAPI StreamPipeThread(LPVOID lpParam)
         } break;
 
         // CAUTION:
-        //  DO NOT disconnect in output-to-input direction to avoid data early lost because of buffering between input and output.
+        //  DO NOT disconnect in child-to-parent direction to avoid data early lost because of buffering in the stdin+stdout pipes chain.
         //
 
         //case STDOUT_FILENO: // stdout

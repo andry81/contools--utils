@@ -466,3 +466,10 @@ These flags already partially added into `help.tpl`, but still is not implemente
 
 * Merge examples from `README_EN.txt` and `help.tpl` into `README_EN.txt` for
   the full examples list.
+
+* Add std[in|out|err] auto close features:
+  `/close-std[in|out|err]-on-byte-index <byte-index>`
+  `/close-std[in|out|err]-on-byte-seq-hex <byte-seq-hex>`
+  `/close-std[in|out|err]-on-str <str>`
+
+  Can be used altogether and multiple times.

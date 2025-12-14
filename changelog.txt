@@ -1,3 +1,11 @@
+2025.12.14:
+* changed: __init__.bat: minor refactor
+* changed: TODO.txt: todo update
+* refactor: src/callf/execute.cpp: minor refactor
+
+2025.07.17:
+* changed: README_EN.txt: readme update
+
 2025.07.07:
 * changed: *.bat: flag parse global code improvement, added `-+` flag to begin flags scope
 
