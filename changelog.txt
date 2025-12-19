@@ -1,3 +1,7 @@
+2025.12.19:
+* changed: ISSUES.txt: issues update
+* changed: TODO.txt: todo update
+
 2025.12.14:
 * changed: __init__.bat: minor refactor
 * changed: TODO.txt: todo update

@@ -76,6 +76,44 @@ src/callf
 * Hangs (in the `contools` `exec_callf_prefix.bat` script) if a current drive 
   is in a sleeping state.
 
+* Fix default environment expansion in an elevated command line (here is in case of `/E0` usage):
+
+  >
+  callfg.exe /elevate /E0 /no-subst-vars /no-esc "" "\"${SystemRoot}\System32\cmd.exe\" /k"
+
+  This command line is malformed, but does execute, because `${SystemRoot}` here does expand, when must not.
+
+  Seems `/no-expand-env` must be passed on to elevated command line by default if the second level `/elevate` options are not used.
+
+  But is much better here is always use `/no-expand-env` flag in an elevated command line when `/allow-expand-env` is not used:
+
+  >
+  callfg.exe /elevate{ }{ /allow-expand-env } /no-subst-vars /no-esc "" "\"${SystemRoot}\System32\cmd.exe\" /k"
+
+  In that case `/no-expand-env` flag must be always regular and excluded from `/elevate{ ... }{ ... }` options.
+
+  Examples of the first solution variant:
+
+    Second level is used:
+
+      `/elevate{ }{ /no-expand-env }` or `/elevate{ }{ /E1 }`
+
+    Second level is not used:
+
+      `/elevate` or `/elevate{ ... }`
+
+  Note, currently user must use this to workaround:
+
+  >
+  callfg.exe /elevate{ }{ /no-expand-env } /E0 /no-subst-vars /no-esc "" "\"${SystemRoot}\System32\cmd.exe\" /k"
+
+  Which is definitely longer and is not error prone.
+
+  With the second solution variant it would be shorter and won't be executed as would be malformed because a user mistake in `/E` option:
+
+  >
+  callfg.exe /elevate /E0 ... "" "\"${SystemRoot}\System32\cmd.exe\" /k"
+
 -------------------------------------------------------------------------------
 tests/manual/contools/callf
 -------------------------------------------------------------------------------

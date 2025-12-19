@@ -473,3 +473,6 @@ These flags already partially added into `help.tpl`, but still is not implemente
   `/close-std[in|out|err]-on-str <str>`
 
   Can be used altogether and multiple times.
+
+* Remove `/no-esc` usage from `/elavate{ /no-esc }`.
+  Make it always regular in case of (un)elevation.
