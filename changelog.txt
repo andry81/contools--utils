@@ -1,3 +1,7 @@
+2026.02.09:
+* fixed: changelog.txt, tests/manual/contools/callf: line endings fixup
+* changed: *.bat: global code refactor, `type nul >` replaced by `call;>` as a bit faster
+
 2025.12.19:
 * changed: ISSUES.txt: issues update
 * changed: TODO.txt: todo update
