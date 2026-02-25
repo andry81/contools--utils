@@ -115,10 +115,12 @@ namespace {
                                 last_offset_ptr = p + var_vn_len;
 
                                 const std::tstring::size_type vn_value_len = arg_offset != (std::numeric_limits<size_t>::max)() ? tstrlen(cmdline_str + arg_offset) : 0;
-                                if (!flags.no_subst_empty_tail_vars || vn_value_len) {
-                                    std::tstring expanded_str;
-                                    _expand_all_variables(cmdline_str + arg_offset, expanded_str, env_buf, flags.no_expand_env, flags.allow_expand_unexisted_env);
-                                    parsed_str.append(expanded_str);
+                                if (!flags.no_subst_empty_tail_vars) {
+                                    if (vn_value_len) {
+                                        std::tstring expanded_str;
+                                        _expand_all_variables(cmdline_str + arg_offset, expanded_str, env_buf, flags.no_expand_env, flags.allow_expand_unexisted_env);
+                                        parsed_str.append(expanded_str);
+                                    }
                                 }
                                 else {
                                     parsed_str.append(var_buf);
