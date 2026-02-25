@@ -1,4 +1,8 @@
 2026.02.25:
+* new: bin/contools: callf*.exe, printf.exe: binaries update
+* changed: src/callf, src/printf: version.def: version increment
+
+2026.02.25:
 * fixed: src/_common/printf.hpp: `{*}` and `{@}` place holders expansion into trash bytes strings (caught in Windows XP)
 
 2026.02.11:
