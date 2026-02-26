@@ -1,4 +1,8 @@
 2026.02.26:
+* new: bin/contools: callf*.exe, printf.exe: binaries update
+* changed: src/callf, src/printf: version.def: version increment
+
+2026.02.26:
 * fixed: src/_common/printf.hpp: missed to process `{*}` and `{@}` place holders expansion together with `/no-subst-empty-tail-vars` flag
 
 2026.02.25:
