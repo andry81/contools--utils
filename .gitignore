@@ -1,7 +1,6 @@
-/.log
-/_out
-/_externals
+/**/.log
+/**/_out
+/**/_externals
 /proj/**/.vs
 /proj/**/*.user
 /src/**/gen
-/tests/**/_out

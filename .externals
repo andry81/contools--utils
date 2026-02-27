@@ -13,7 +13,6 @@ repositories:
       - scripts/tools/std
       - scripts/tools/wmi
       - scripts/tools/xcopy
-      - tools
 
   _externals/msys2-autogen:
     type:         git

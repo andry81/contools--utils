@@ -1,3 +1,6 @@
+2026.02.27:
+* changed: .externals: update to the latest
+
 2026.02.26:
 * new: bin/contools: callf*.exe, printf.exe: binaries update
 * changed: src/callf, src/printf: version.def: version increment
