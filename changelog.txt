@@ -1,3 +1,6 @@
+2026.03.10:
+* changed: _config: `INIT_VERBOSE`, `CONTOOLS_VERBOSE`, `PRINT_VARS_SET`, `CHCP` global environment variables initialization is moved into `contools` project
+
 2026.02.27:
 * changed: .externals: update to the latest
 

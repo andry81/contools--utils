@@ -36,4 +36,4 @@ upath CONTOOLS_UTILS_AUTOGEN_ROOT               ="%CONTOOLS_UTILS_PROJECT_EXTERN
 #   Is required for `set_vars_from_locked_file_pair.bat` script which does called from `cmake/set_vars_from_files.bat` script
 #   to be able to create variables with UTF-8 values.
 #
-once CHCP                                       =65001
+#once CHCP                                       =65001
