@@ -130,7 +130,7 @@ src/callf
 
   error: could not create inbound server named pipe end to stdout: win_error=0x00000057 (87)
 
-* Fix line returns break in Windows 7:
+* Fix line returns break:
 
   Prints `AAABBBCCCDDD` as a single line without line returns if press the
   enter key on each input.
