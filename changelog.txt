@@ -1,4 +1,8 @@
 2026.05.02:
+* new: bin/contools: callf*.exe: binaries update
+* changed: src/callf/version.def: version increment
+
+2026.05.02:
 * fixed: src/_common: avoid conversion into wide string in case of UTF-7/UTF-8 code page of the console output
 * changed: src/callf: flush stdout buffer before wait on stdin
 * changed: src/callf: print `Press any key to continue . . .` without line return character
