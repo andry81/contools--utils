@@ -1855,7 +1855,7 @@ namespace
                 g_conout_prints_buf.push_back(_ConsoleOutput{ stream_type, std::string{ fixed_message_char_buf, size_t(num_written_chars) } });
             }
 
-            if (text_mode & (_O_WTEXT | _O_U16TEXT | _O_U8TEXT)) {
+            if (text_mode & (_O_WTEXT | _O_U16TEXT /* | _O_U8TEXT*/)) {
                 // always use wide string CRT print functions
                 goto wide_string_crt1;
             }
@@ -1865,8 +1865,6 @@ namespace
             case 1201:  // UTF-16BE
             case 12000: // UTF-32LE
             case 12001: // UTF-32BE
-            case CP_UTF7:
-            case CP_UTF8:
             {
             wide_string_crt1:
 
@@ -1884,6 +1882,8 @@ namespace
                 }
             } break;
 
+            case CP_UTF7:
+            case CP_UTF8:
             default:
             {
                 switch (stream_type) {
@@ -1908,7 +1908,7 @@ namespace
                 g_conout_prints_buf.push_back(_ConsoleOutput{ stream_type, std::string{ char_buf.data(), char_buf.size() > 0 ? char_buf.size() - 1 : 0 } });
             }
 
-            if (text_mode & (_O_WTEXT | _O_U16TEXT | _O_U8TEXT)) {
+            if (text_mode & (_O_WTEXT | _O_U16TEXT/* | _O_U8TEXT*/)) {
                 // always use wide string CRT print functions
                 goto wide_string_crt2;
             }
@@ -1918,8 +1918,6 @@ namespace
             case 1201:  // UTF-16BE
             case 12000: // UTF-32LE
             case 12001: // UTF-32BE
-            case CP_UTF7:
-            case CP_UTF8:
             {
             wide_string_crt2:
 
@@ -1937,6 +1935,8 @@ namespace
                 }
             } break;
 
+            case CP_UTF7:
+            case CP_UTF8:
             default:
             {
                 switch (stream_type) {
@@ -1970,7 +1970,7 @@ namespace
                 g_conout_prints_buf.push_back(_ConsoleOutput{ stream_type, std::string{ fixed_message_char_buf, size_t(num_written_chars2) } });
             }
 
-            if (text_mode & (_O_WTEXT | _O_U16TEXT | _O_U8TEXT)) {
+            if (text_mode & (_O_WTEXT | _O_U16TEXT/* | _O_U8TEXT*/)) {
                 // always use wide string CRT print functions
                 goto wide_string_crt3;
             }
@@ -1980,8 +1980,6 @@ namespace
             case 1201:  // UTF-16BE
             case 12000: // UTF-32LE
             case 12001: // UTF-32BE
-            case CP_UTF7:
-            case CP_UTF8:
             {
                 switch (stream_type) {
                 case STDOUT_FILENO:
@@ -1993,6 +1991,8 @@ namespace
                 }
             } break;
 
+            case CP_UTF7:
+            case CP_UTF8:
             default:
             {
             wide_string_crt3:
@@ -2060,7 +2060,7 @@ namespace
         // check CRT stream text translation mode
         const int text_mode = _get_crt_mode(stream_type);
 
-        if (text_mode & (_O_WTEXT | _O_U16TEXT | _O_U8TEXT)) {
+        if (text_mode & (_O_WTEXT | _O_U16TEXT/* | _O_U8TEXT*/)) {
             // always use wide string CRT print functions
             goto wide_string_crt;
         }
@@ -2151,7 +2151,7 @@ namespace
         // check CRT stream text translation mode
         const int text_mode = _get_crt_mode(stream_type);
 
-        if (text_mode & (_O_WTEXT | _O_U16TEXT | _O_U8TEXT)) {
+        if (text_mode & (_O_WTEXT | _O_U16TEXT/* | _O_U8TEXT*/)) {
             // always use wide string CRT print functions
             goto wide_string_crt;
         }
@@ -2161,8 +2161,6 @@ namespace
         case 1201:  // UTF-16BE
         case 12000: // UTF-32LE
         case 12001: // UTF-32BE
-        case CP_UTF7:
-        case CP_UTF8:
         {
         wide_string_crt:
 
@@ -2180,6 +2178,8 @@ namespace
             }
         } break;
 
+        case CP_UTF7:
+        case CP_UTF8:
         default:
         {
             switch (stream_type) {
@@ -2210,7 +2210,7 @@ namespace
         // check CRT stream text translation mode
         const int text_mode = _get_crt_mode(stream_type);
 
-        if (text_mode & (_O_WTEXT | _O_U16TEXT | _O_U8TEXT)) {
+        if (text_mode & (_O_WTEXT | _O_U16TEXT/* | _O_U8TEXT*/)) {
             // always use wide string CRT print functions
             goto wide_string_crt;
         }
@@ -2676,8 +2676,6 @@ namespace
                 case 1201:  // UTF-16BE
                 case 12000: // UTF-32LE
                 case 12001: // UTF-32BE
-                case CP_UTF7:
-                case CP_UTF8:
                 {
                     FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
                         NULL, win_error, MAKELANGID(langid, SUBLANG_DEFAULT), (LPWSTR)&win_error_msg_buf_w, 0, NULL);
@@ -2692,6 +2690,8 @@ namespace
 #endif
                 } break;
 
+                case CP_UTF7:
+                case CP_UTF8:
                 default:
                 {
                     FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -2734,14 +2734,14 @@ namespace
             case 1201:  // UTF-16BE
             case 12000: // UTF-32LE
             case 12001: // UTF-32BE
-            case CP_UTF7:
-            case CP_UTF8:
             {
                 FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
                     NULL, win_error, MAKELANGID(langid, SUBLANG_DEFAULT), (LPWSTR)&win_error_msg_buf_w, 0, NULL);
                 _print_stderr_message(msgt_error, L"win32: \"%s\"\n", win_error_msg_buf_w);
             } break;
 
+            case CP_UTF7:
+            case CP_UTF8:
             default:
             {
                 FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,

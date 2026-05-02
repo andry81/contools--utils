@@ -4951,8 +4951,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
                 is_console_restored = RestoreConsole(nullptr, ret_, win_error_, &g_detached_std_handles, &g_detached_std_handles_state, false);
 
                 if (g_inherited_console_window) {
-                    _put_raw_message_impl(0, STDOUT_FILENO, "Press any key to continue . . . \n");
+                    _put_raw_message_impl(0, STDOUT_FILENO, "Press any key to continue . . .");
                 }
+
+                std::cout.flush(); // flush stdout before wait on stdin
 
                 _getch();
             }
@@ -5025,7 +5027,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 #ifdef _DEBUG
                             // pause again for debugging purposes
                             if (pause_on_exit) {
-                                _put_raw_message_impl(0, STDOUT_FILENO, "[DEBUG] Press any key to continue . . . \n");
+                                _put_raw_message_impl(0, STDOUT_FILENO, "[DEBUG] Press any key to continue . . .");
+                                std::cout.flush(); // flush stdout before wait on stdin
                                 _getch();
                             }
 #endif
