@@ -1,4 +1,8 @@
 2026.05.27:
+* new: bin/contools/retakeowner.exe: binaries update
+* changed: src/retakeowner/version.def: version increment
+
+2026.05.27:
 * changed: src/retakeowner/retakeowner.cpp: support SID strings
 
 2026.05.02:
