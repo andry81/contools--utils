@@ -2,13 +2,13 @@
 retakeowner.exe, version [+ AppMajorVer +].[+ AppMinorVer +].[+ AppRevision +], build [+ AppBuildNum +].
   Retakes ownership on a file or not recursively on a directory.
 
-Usage: retakeowner.exe [/?] <File>|<Directory> <User>|<Group>
+Usage: retakeowner.exe [/?] <File>|<Directory> <User>|<Group>|<SID>
   Description:
     /?:
       This help.
 
-    <File>|<Directory> - Path to existing file or directory.
-    <User>|<Group>     - Existing User or Group to take ownership.
+    <File>|<Directory>   - Path to existing file or directory.
+    <User>|<Group>|<SID> - Existing User, Group or SID to take ownership.
 
   Return codes:
    -255   - unspecified error
@@ -20,3 +20,4 @@ Usage: retakeowner.exe [/?] <File>|<Directory> <User>|<Group>
 
   Examples:
     retakeowner.exe "c:\myfile.exe" User
+    retakeowner.exe "c:\myfile.exe" *S-1-5-32-544

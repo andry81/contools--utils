@@ -11,6 +11,8 @@
 
 #include "common.hpp"
 
+#include <Sddl.h>
+
 
 namespace
 {
@@ -39,7 +41,7 @@ static BOOL SetPrivilege(
     if (!LookupPrivilegeValue(
         NULL,            // lookup privilege on local system
         lpszPrivilege,   // privilege to lookup 
-        &luid))        // receives LUID of privilege
+        &luid))          // receives LUID of privilege
     {
         printf("LookupPrivilegeValue error: %u\n", GetLastError());
         return FALSE;
@@ -67,7 +69,6 @@ static BOOL SetPrivilege(
     }
 
     if (GetLastError() == ERROR_NOT_ALL_ASSIGNED)
-
     {
         printf("The token does not have the specified privilege. \n");
         return FALSE;
@@ -116,6 +117,8 @@ int _tmain(int argc, LPTSTR argv[])
     DWORD len;
     PSECURITY_DESCRIPTOR security = NULL;
     PSID sidPtr = NULL;
+    PSID sidPtr1 = NULL;
+    PSID sidPtr2 = NULL;
 
     switch(1) case 1: default:
     __try {
@@ -153,12 +156,23 @@ int _tmain(int argc, LPTSTR argv[])
         DWORD sidSize = 0;
         DWORD bufSize = 4096;
         SID_NAME_USE sidUse;
-        LookupAccountName(NULL, newuser, sidPtr, &sidSize, domainbuf, &bufSize, &sidUse);
-        sidPtr = (PSID)malloc(sidSize);
-        SetLastError(0); last_error = 0;
-        if (!LookupAccountName(NULL, newuser, (PSID)sidPtr, &sidSize, domainbuf, &bufSize, &sidUse)) {
-            last_error = GetLastError();
-            break;
+
+        if (newuser[0] != _T('*')) {
+            LookupAccountName(NULL, newuser, sidPtr, &sidSize, domainbuf, &bufSize, &sidUse);
+            sidPtr1 = (PSID)malloc(sidSize);
+            SetLastError(0); last_error = 0;
+            if (!LookupAccountName(NULL, newuser, (PSID)sidPtr1, &sidSize, domainbuf, &bufSize, &sidUse)) {
+                last_error = GetLastError();
+                break;
+            }
+            sidPtr = sidPtr1;
+        } else {
+            SetLastError(0);
+            if (!ConvertStringSidToSid(newuser + 1, &sidPtr2)) {
+                last_error = GetLastError();
+                break;
+            }
+            sidPtr = sidPtr2;
         }
 
         // Set the sid to be the new owner
@@ -178,7 +192,8 @@ int _tmain(int argc, LPTSTR argv[])
     __finally
     {
         free(security);
-        free(sidPtr);
+        free(sidPtr1);
+        LocalFree(sidPtr2);
     }
 
     return last_error;
