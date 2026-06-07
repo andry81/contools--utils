@@ -12,7 +12,7 @@ call "%%CONTOOLS_ROOT%%/std/declare_builtins.bat" %%0 %%* || exit /b
   /v IMPL_MODE 1 /no-expand-env /no-subst-pos-vars /no-esc ^
   /print-win-error-string /ret-child-exit /pause-on-exit ^
   /disable-ctrl-signals /disable-ctrl-c-signal ^
-  "%COMSPEC%" "/c \"@\"%?~f0%\" {*} ^& \"%CONTOOLS_ROOT%/std/errlvl.bat\"\""
+  "%COMSPEC%" "/c \"@\"%?~f0%\" {*} ^& exit\""
 
 set LAST_ERROR=%ERRORLEVEL%
 

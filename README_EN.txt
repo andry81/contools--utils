@@ -1,5 +1,5 @@
 * README_EN.txt
-* 2025.07.17
+* 2026.06.07
 * contools--utils
 
 1. DESCRIPTION
@@ -410,28 +410,7 @@ CAUTION:
 To fix #2:
 
   >
-  callf /ret-child-exit "" "cmd.exe /c 1.bat & call exit /b %%ERRORLEVEL%%"
-
-  Or
-
-  >
-  callf /ret-child-exit "" "cmd.exe /c \"1.bat ^& call exit /b %%ERRORLEVEL%%\""
-
-  NOTE:
-    Second workaround requires to correctly escape control characters:
-    & | ^ etc
-
-  Or
-
-  Use "errlvl.bat" from `contools` scripts:
-
-  >
-  callf /ret-child-exit "" "cmd.exe /c 1.bat & \"%%CONTOOLS_ROOT%%/scripts/tools/std/errlvl.bat\""
-
-  and you can use a different environment variables expansion:
-
-  >
-  callf /ret-child-exit "" "cmd.exe /c 1.bat & \"${CONTOOLS_ROOT}/scripts/tools/std/errlvl.bat\""
+  cmd.exe /c "1.bat & exit"
 
 -------------------------------------------------------------------------------
 9.1.2. Interactive input autocompletion disable.
