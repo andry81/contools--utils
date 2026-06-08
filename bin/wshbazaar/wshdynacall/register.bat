@@ -65,13 +65,13 @@ if not exist "%SystemRoot%\Syswow64\*" (
 
 rem CAUTION: ShellExecute does not wait a child process close!
 rem NOTE: `ExecuteGlobal` is used as a workaround, because the `mshta.exe` first argument must not be used with the surrounded quotes
-start /B /WAIT "" "%SystemRoot%\System32\mshta.exe" vbscript:ExecuteGlobal("Close(CreateObject(""Shell.Application"").ShellExecute(""%SystemRoot%\Syswow64\cmd.exe"", ""/c @%?.%"", """", ""runas"", True))")
+start "" /B /WAIT "%SystemRoot%\System32\mshta.exe" vbscript:ExecuteGlobal("Close(CreateObject(""Shell.Application"").ShellExecute(""%SystemRoot%\Syswow64\cmd.exe"", ""/c @%?.%"", """", ""runas"", True))")
 exit /b
 
 :X86
 rem CAUTION: ShellExecute does not wait a child process close!
 rem NOTE: `ExecuteGlobal` is used as a workaround, because the `mshta.exe` first argument must not be used with the surrounded quotes
-start /B /WAIT "" "%SystemRoot%\System32\mshta.exe" vbscript:ExecuteGlobal("Close(CreateObject(""Shell.Application"").ShellExecute(""%COMSPEC%"", ""/c @%?.%"", """", ""runas"", True))")
+start "" /B /WAIT "%SystemRoot%\System32\mshta.exe" vbscript:ExecuteGlobal("Close(CreateObject(""Shell.Application"").ShellExecute(""%COMSPEC%"", ""/c @%?.%"", """", ""runas"", True))")
 exit /b
 
 :ELEVATED
